@@ -1,20 +1,15 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import getStats from './routes/get-stats';
+import ErrorHandler from './services/error-handling.service';
 import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
-dotenv.config();
 app.use(bodyParser.json());
+app.get('/stats', getStats);
+app.use(ErrorHandler);
 
-app.get('/', (req, res) => {
-    res.send('GET /');
-});
-
-app.post('/', (req, res) => {
-    console.log(req.body);
-    res.send('POST /');
-});
-
-app.listen(3000, () => {
-    console.log('Running on port 3000!');
+app.listen(process.env.PORT, function(){
+    console.log('Running on port ' + process.env.PORT);
 });
