@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
 import fs from 'fs';
 
-export default function(err: any, req: Request, res: Response, next: any){
+export default function(err: any, req: Request, res: Response, next: any) {
 	const path = process.cwd() + "/log.json";
 	
-	if(fs.existsSync(path)){
+	if (fs.existsSync(path)) {
 		let row = fs.readFileSync(path, 'utf8');
 		let json = JSON.parse(row);
 		json.push({
@@ -12,13 +12,15 @@ export default function(err: any, req: Request, res: Response, next: any){
 		    "error": err,
 		    "date": new Date()
 		});
+
 		fs.writeFileSync(path, JSON.stringify(json));
-	}else{
+	} else {
 		let data = [{
 			"path": req.url,
 		    "error": err,
 		    "date": new Date()
 		}];
+
 		fs.writeFileSync(path, JSON.stringify(data));
 	}
 }

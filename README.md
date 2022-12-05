@@ -4,7 +4,7 @@ It returns a minimalistic response with min_temp, max_temp and date.
 It uses Typescript and Express.JS framework.
 It caches the response in Redis that runs in Docker with an expiration time of 5min that can be modified from .env file.
 
-`GET: /stats?city=Arad&country=RO`
+`GET: /get-stats?city=Arad&country=RO`
 
 ## Dependencies
 - Node.JS (I've used v14.2)
