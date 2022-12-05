@@ -8,12 +8,14 @@ export default function(err: any, req: Request, res: Response, next: any){
 		let row = fs.readFileSync(path, 'utf8');
 		let json = JSON.parse(row);
 		json.push({
+			"path": req.url,
 		    "error": err,
 		    "date": new Date()
 		});
 		fs.writeFileSync(path, JSON.stringify(json));
 	}else{
 		let data = [{
+			"path": req.url,
 		    "error": err,
 		    "date": new Date()
 		}];
