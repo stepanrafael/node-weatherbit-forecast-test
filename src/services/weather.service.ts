@@ -17,6 +17,7 @@ export default class WeatherService implements WeatherServiceInterface{
 					result.data.push({
 						"app_max_temp": item.app_max_temp,
 						"app_min_temp": item.app_min_temp,
+						"avg_temp": Number(((item.app_max_temp + item.app_min_temp) / 2).toFixed(2)),
 						"valid_date": item.valid_date
 					});
 				});

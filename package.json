@@ -6,7 +6,7 @@
   "scripts": {
     "start-prod": "npx tsc --project ./ && node ./dist/index.js",
     "start-dev": "nodemon src/index.ts",
-    "start-redis": "docker run --name rdb -p 6379:6379 redis:alpine",
+    "start-redis": "docker run -d --name rdb -p 6379:6379 redis:alpine",
     "init-start": "npm install && docker run -d --name rdb -p 6379:6379 redis:alpine && npx tsc --project ./ && node ./dist/index.js",
     "test": ""
   },
