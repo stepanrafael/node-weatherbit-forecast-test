@@ -1,4 +1,4 @@
-## Weatherbit API Test (Node, Express, TS)
+## Weatherbit API Test (Node, Express, TS, Redis, Docker)
 It works like a proxy that fetches Weatherbit. Returns seven daily forecast for a given city. 
 It returns a minimalistic response with min/max/avg temp and date.
 It uses Typescript and Express.JS framework.
